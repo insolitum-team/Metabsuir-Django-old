@@ -94,8 +94,19 @@ WSGI_APPLICATION = 'bh_forum_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': os.getenv('db_name'),
+
+        'USER': os.getenv('db_username'),
+
+        'PASSWORD': os.getenv('db_password'),
+
+        'HOST': os.getenv('db_hostname_or_ip'),
+
+        'PORT': os.getenv('db_port'),
+
     }
 }
 
