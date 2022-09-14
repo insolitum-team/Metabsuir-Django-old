@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django import forms
 from .models import *
 from django.forms import ModelForm
@@ -27,7 +26,21 @@ class UserOptionalForm(ModelForm):
                     ('fcsn', 'КСиС'),
                     ('mf', 'ВФ'),
                     ()
-                ])
+                ]),
+            'specialty': forms.Select(
+                attrs={'class': 'form-control'},
+                choices=[
+                    ('fee', 'ИЭФ'),
+                    ('fcad', 'ФКП'),
+                    ('fitc', 'ФИТУ'),
+                    ('fre', 'ФРЭ'),
+                    ('fcsn', 'КСиС'),
+                    ('mf', 'ВФ'),
+                    ()
+                ]),
+            'group': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control'}),
+            'tg_link': forms.URLInput(attrs={'class': 'form-control'}),
         }
 
 
