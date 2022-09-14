@@ -60,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2'
         ,
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'app/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -74,7 +74,7 @@ TEMPLATES = [
     },
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [os.path.join(BASE_DIR, "app/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -94,19 +94,12 @@ WSGI_APPLICATION = 'bh_forum_django.wsgi.application'
 
 DATABASES = {
     'default': {
-
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
         'NAME': os.getenv('db_name'),
-
         'USER': os.getenv('db_username'),
-
         'PASSWORD': os.getenv('db_password'),
-
         'HOST': os.getenv('db_hostname_or_ip'),
-
         'PORT': os.getenv('db_port'),
-
     }
 }
 
