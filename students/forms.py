@@ -19,25 +19,25 @@ class UserOptionalForm(ModelForm):
             'faculty': forms.Select(
                 attrs={'class': 'form-control'},
                 choices=[
-                    ('fee', 'ИЭФ'),
-                    ('fcad', 'ФКП'),
-                    ('fitc', 'ФИТУ'),
-                    ('fre', 'ФРЭ'),
-                    ('fcsn', 'КСиС'),
-                    ('mf', 'ВФ'),
-                    ()
-                ]),
+                    ('ИЭФ', 'ИЭФ'),
+                    ('ФКП', 'ФКП'),
+                    ('ФИТУ', 'ФИТУ'),
+                    ('ФРЭ', 'ФРЭ'),
+                    ('КСиС', 'КСиС'),
+                    ('ВФ', 'ВФ'),
+                ]
+            ),
             'specialty': forms.Select(
                 attrs={'class': 'form-control'},
                 choices=[
-                    ('fee', 'ИЭФ'),
-                    ('fcad', 'ФКП'),
-                    ('fitc', 'ФИТУ'),
-                    ('fre', 'ФРЭ'),
-                    ('fcsn', 'КСиС'),
-                    ('mf', 'ВФ'),
-                    ()
-                ]),
+                    ('ЭЭБ', 'ЭЭБ'),
+                    ('ЭМ', 'ЭМ'),
+                    ('ИСиТ(Л)', 'ИСиТ(Л)'),
+                    ('ИСиТ(Э)', 'ИСиТ(Э)'),
+                    ('ИСиТ(Б)', 'ИСиТ(Б)'),
+                    ('ЭСБ', 'ЭСБ'),
+                ]
+            ),
             'group': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'tg_link': forms.URLInput(attrs={'class': 'form-control'}),
