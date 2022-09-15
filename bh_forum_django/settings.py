@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'students.apps.StudentsConfig',
     'poster.apps.PosterConfig',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 300,
+        'width': 1295,
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

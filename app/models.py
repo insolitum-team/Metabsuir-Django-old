@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class Section(models.Model):
@@ -12,7 +13,7 @@ class Section(models.Model):
 class Theme(models.Model):
     name = models.CharField('Название темы', max_length=255)
     date = models.DateTimeField('Дата создания')
-    main_post = models.TextField('Главный пост')
+    main_post = RichTextField()
     author = models.ForeignKey(User, blank=False, null=False, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, blank=False, null=False, on_delete=models.CASCADE)
 
