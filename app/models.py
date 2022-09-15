@@ -5,6 +5,9 @@ from django.db import models
 class Section(models.Model):
     name = models.CharField('Название секции', max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Theme(models.Model):
     name = models.CharField('Название темы', max_length=255)
@@ -13,6 +16,9 @@ class Theme(models.Model):
     author = models.ForeignKey(User, blank=False, null=False, on_delete=models.CASCADE)
     section = models.ForeignKey(Section, blank=False, null=False, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
 
 class Message(models.Model):
     content = models.TextField('Содержание')
@@ -20,4 +26,3 @@ class Message(models.Model):
     reply_to = models.IntegerField('Ответ на')
     sender = models.ForeignKey(User, blank=False, null=False, on_delete=models.CASCADE)
     date = models.DateTimeField('Дата отправки')
-
