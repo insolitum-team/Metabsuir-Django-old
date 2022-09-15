@@ -37,3 +37,27 @@ def signup(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+
+def complete_reg(request):
+    if request.method == 'POST':
+        form = UserOptionalForm(request.POST)
+        if form.is_valid():
+            user_info = form.save(commit=False)
+            user_info.user = request.user
+            user_info.save()
+            return redirect('home')
+    else:
+        form = UserOptionalForm
+        return render(request, 'auth/complete_reg.html', {'form': form})
+
+
+def redact(request, info_id):
+    user_optional_info = UserOptional.objects.get(pk=info_id)
+    form = UserOptionalForm(request.POST or None, instance=user_optional_info)
+    if form.is_valid():
+        user_info = form.save(commit=False)
+        user_info.user = request.user
+        user_info.save()
+        return redirect('home')
+    return render(request, 'auth/redact.html', {'form': form})
