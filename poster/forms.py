@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from app.models import *
+from ckeditor.widgets import CKEditorWidget
 
 
 class AddTheme(ModelForm):
@@ -13,5 +14,6 @@ class AddTheme(ModelForm):
         }
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'main_post': forms.Textarea(attrs={'class': 'form-control'}),
+            'main_post': forms.CharField(widget=CKEditorWidget())
+            # 'main_post': forms.Textarea(attrs={'class': 'form-control'}),
         }
