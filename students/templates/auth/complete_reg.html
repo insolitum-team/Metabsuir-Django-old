@@ -1,14 +1,10 @@
 {% extends 'app/base.html' %}
 {% block content %}
-{% if user.is_authenticated %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}<br>
-    <input type="submit" value="Submit" class="btn btn-outline-secondary">
-</form>
-{% else %}
-<div class="alert alert-danger" role="alert">
-    <i class="fa-solid fa-ban"></i> Пожалуйста, пройдите регистрацию или войдите в систему.
+<div class="p-4 mb-5 bg-body rounded">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}<br>
+        <input type="submit" value="Подтвердить" class="btn btn-outline-dark">
+    </form>
 </div>
-{% endif %}
 {% endblock %}
