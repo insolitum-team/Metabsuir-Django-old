@@ -1,7 +1,7 @@
 from django.test import TestCase
 from students.models import *
 
-class UserAndUserOptionalModelTest(TestCase):
+class ModelsTest(TestCase):
     def test_user_and_user_optional_models_save_and_retrieve(self):
         user1 = User(
             username='test1',
