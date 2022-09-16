@@ -5,9 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .bg-dark {
+            background-color: #17191f !important;
+        }
+        .text-bg-dark {
+            background-color: #22242b !important;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        .background-border {
+            min-height: 630px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 !important;
+        }
+        .left-part {
+            width: calc(100% - 270px);
+            max-width: calc(100% - 270px);
+            display: inline-block;
+            background: #22242b;
+            border-radius: 10px;
+        }
+        .right-part {
+            display: inline-block;
+            width: 250px;
+            background: #22242b;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body class="bg-dark">
-    <header class="p-3 text-bg-dark">
+    <header class="p-3 text-bg-dark custom-color">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -35,15 +65,23 @@
       </div>
     </header>
     <br>
-    <div class="container">
-        {% block content %}
-        {% endblock content %}
-        <footer>
+    <div class="container background-border">
+        <div class="left-part">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div class="right-part">
+            {% block side_content %}
+            {% endblock side_content %}
+        </div>
+    </div>
+    <br>
+    <footer>
             <center>
                 <span class="text-white">&copy; esquiresword & ImmortalDante</span><br>
             </center>
-        </footer>
-    </div>
+    </footer>
+    <br>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
