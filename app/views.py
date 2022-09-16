@@ -1,5 +1,12 @@
 from django.shortcuts import render
+from .models import *
 
 
 def home(request):
-    return render(request, "app/base.html", {})
+    sections = Section.objects.all()
+    return render(request, "app/index.html", {'sections': sections})
+
+
+def theme_by_section(request, section_id):
+    themes = Theme.objects.filter(section_id=section_id).all()
+    return render(request, 'app/themes_by_section.html', {'themes': themes})

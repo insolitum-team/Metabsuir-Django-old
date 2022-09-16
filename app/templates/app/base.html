@@ -84,16 +84,8 @@
       </div>
     </header>
     <br>
-    <div class="container background-border">
-        <div class="left-part">
-            {% block content %}
-            {% endblock content %}
-        </div>
-        <div class="right-part">
-            {% block side_content %}
-            {% endblock side_content %}
-        </div>
-    </div>
+    {% block content %}
+    {% endblock %}
     <br>
     <footer>
             <center>
