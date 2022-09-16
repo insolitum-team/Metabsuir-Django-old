@@ -14,8 +14,6 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
         }
         .background-border {
-            min-height: 630px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -27,6 +25,7 @@
             display: inline-block;
             background: #22242b;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
         .right-part {
             display: inline-block;
@@ -53,25 +52,39 @@
         .p-3 {
             padding: 0.6rem !important;
         }
+        .section-name {
+            padding: 10px 15px;
+            background: #2e313b;
+            border-radius: 10px 10px 0 0;
+        }
+        hr {
+            width: calc(100% - 30px);
+            margin: 1rem auto;
+        }
+        .theme-name {
+            padding: 0 25px;
+        }
+        @media (min-width: 1400px){
+            .container{
+                max-width: 1175px;
+            }
+        }
     </style>
 </head>
 <body class="bg-dark">
     <header class="p-3 text-bg-dark custom-color">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-                </a>
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="{% url 'home' %}" class="nav-link px-2 text-white"><p class="logo-text-1">BSUIR</p> <p class="logo-text-2">hub</p></a></li>
-                {% if user.is_authenticated %}
-                <li><a href="#" class="nav-link px-2 text-white">Профиль</a></li>
-                {% endif %}
             </ul>
-
+            {% if user.is_authenticated %}
+                <a href="#" class="nav-link px-2 text-white" style="margin-right: 0.6rem; font-size: 1.2rem;"><i class="fa-solid fa-user"></i></a>
+            {% endif %}
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                 <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Поиск..." aria-label="Search">
             </form>
+
             <div class="text-end">
                 {% if not user.is_authenticated %}
                 <a href="{% url 'user_login' %}"><button type="button" class="btn btn-outline-light me-2">Войти</button></a>
@@ -93,6 +106,7 @@
             </center>
     </footer>
     <br>
+    <script src="https://kit.fontawesome.com/f4640e6f72.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

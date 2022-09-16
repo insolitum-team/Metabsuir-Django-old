@@ -4,7 +4,8 @@ from .models import *
 
 def home(request):
     sections = Section.objects.all()
-    return render(request, "app/index.html", {'sections': sections})
+    themes = Theme.objects.all()
+    return render(request, "app/index.html", {'sections': sections, 'themes': themes})
 
 
 def theme_by_section(request, section_id):

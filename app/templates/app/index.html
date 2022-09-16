@@ -1,12 +1,19 @@
 {% extends 'app/base.html' %}
 {% block content %}
 <div class="container background-border">
-    <div class="left-part">
         {% for section in sections %}
-        <a href="{% url 'theme_by_section' section.id %}"><h5 style="color: white;">{{ section }}</h5></a>
+            <div class="left-part" style="color: white">
+            <p class="section-name">{{ section }}</p>
+            {% for theme in themes %}
+                {% if theme.section_id == section.id %}
+                    <p class="theme-name"><i class="fa-solid fa-flag" style="font-size: 13px; color: #ffc107; margin-right: 10px"></i>{{ theme }}</p>
+                    <hr>
+                {% endif %}
+            {% endfor %}
+            </div>
         {% endfor %}
-    </div>
     <div class="right-part">
     </div>
 </div>
+
 {% endblock %}
