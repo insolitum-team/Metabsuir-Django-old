@@ -4,5 +4,5 @@ from .views import *
 
 urlpatterns = [
     path('', home, name='home'),
-    path('themes/<section_id>', theme_by_section, name='theme_by_section'),
+    path('current-theme/<theme_id>', theme, name='theme'),
 ]
