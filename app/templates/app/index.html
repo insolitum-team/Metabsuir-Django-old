@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="container background-border">
+    <div class="left-part">
+        {% for section in sections %}
+        <a href="{% url 'theme_by_section' section.id %}"><h5 style="color: white;">{{ section }}</h5></a>
+        {% endfor %}
+    </div>
+    <div class="right-part">
+    </div>
+</div>
+{% endblock %}
