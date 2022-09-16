@@ -2,8 +2,9 @@
 {% block content %}
 <div class="container background-border">
     <div class="left-part">
-        {% for theme in themes %}
         <h5 style="color: white;">{{ theme }}</h5>
+        {% for message in messages %}
+        <p style="color: white;">{{ message.content }}</p>
         {% endfor %}
     </div>
     <div class="right-part">

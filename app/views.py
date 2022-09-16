@@ -8,6 +8,7 @@ def home(request):
     return render(request, "app/index.html", {'sections': sections, 'themes': themes})
 
 
-def theme_by_section(request, section_id):
-    themes = Theme.objects.filter(section_id=section_id).all()
-    return render(request, 'app/themes_by_section.html', {'themes': themes})
+def theme(request, theme_id):
+    current_theme = Theme.objects.get(pk=theme_id)
+    messages = Message.objects.filter(theme_id=theme_id)
+    return render(request, 'app/current_theme.html', {'theme': current_theme, 'messages': messages})
