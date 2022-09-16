@@ -15,5 +15,4 @@ class AddTheme(ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'main_post': forms.CharField(widget=CKEditorWidget())
-            # 'main_post': forms.Textarea(attrs={'class': 'form-control'}),
         }
