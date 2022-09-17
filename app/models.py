@@ -27,3 +27,9 @@ class Message(models.Model):
     reply_to = models.IntegerField('Ответ на', blank=True, null=True)
     sender = models.ForeignKey(User, blank=False, null=False, on_delete=models.CASCADE)
     date = models.DateTimeField('Дата отправки', auto_now_add=True)
+
+class SideMenuItem(models.Model):
+    theme = models.ForeignKey(Theme, blank=False, null=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.theme.name

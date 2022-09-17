@@ -1,19 +1,40 @@
 {% extends 'app/base.html' %}
 {% block content %}
 <div class="container background-border">
-        {% for section in sections %}
+        <div style="width: calc(100% - 270px);
+    max-width: calc(100% - 270px);">
+            {% for section in sections %}
             <div class="left-part" style="color: white">
             <p class="section-name">{{ section }}</p>
             {% for theme in themes %}
                 {% if theme.section_id == section.id %}
-                    <p class="theme-name"><i class="fa-solid fa-flag" style="font-size: 13px; color: #ffc107; margin-right: 10px"></i>{{ theme }}</p>
+                    <a href="{% url "theme" theme.id %}" class="link-color"><p class="theme-name"><i class="fa-solid fa-flag" style="font-size: 13px; color: #ffc107; margin-right: 10px"></i>{{ theme }}</p></a>
                     <hr>
                 {% endif %}
             {% endfor %}
             </div>
         {% endfor %}
-    <div class="right-part">
+        </div>
+    <div STYLE="display: inline-block;
+            width: 250px;">
+
+        <p style="color: white; margin-bOttom: 5px">Меню быстрого доступа</p>
+        <div class="right-part">
+            {% for side_menu_item in side_menu_items %}
+                <a style="display: block;
+    border: solid 2px #2e313b;
+    margin: 5px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    text-decoration: none;
+    padding: 2px 9px;
+    color: #ffc107;
+    font-size: 15px;
+font-weight: 300" href={% url "theme" side_menu_item.theme.id %}>{{ side_menu_item }}</a>
+            {% endfor %}
+        </div>
     </div>
+
 </div>
 
 {% endblock %}
