@@ -5,7 +5,10 @@ from .models import *
 def home(request):
     sections = Section.objects.all()
     themes = Theme.objects.all()
-    return render(request, "app/index.html", {'sections': sections, 'themes': themes})
+    side_menu_items = SideMenuItem.objects.all()
+    return render(request, "app/index.html", {'sections': sections,
+                                              'themes': themes,
+                                              'side_menu_items': side_menu_items})
 
 
 def theme(request, theme_id):

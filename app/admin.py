@@ -12,3 +12,7 @@ class MessageAdmin(admin.ModelAdmin):
         'date',
     )
     ordering = ('date',)
+
+@admin.register(SideMenuItem)
+class SideMenuItemAdmin(admin.ModelAdmin):
+    pass
