@@ -1,0 +1,5 @@
+{% extends 'app/base.html' %}
+{% block content %}
+{{ user }} - {{ user_info.faculty }} - {{ user_info.speciality }} - {{ user_info.group }} - {{ user_info.description }} - {{ user_info.tg_link }}
+<a href="{% url 'redact' %}">Redact</a>
+{% endblock %}
