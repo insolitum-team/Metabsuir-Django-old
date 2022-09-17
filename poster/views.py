@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import *
+from django.contrib import messages
 
 
 def add_theme(request, section_id):
@@ -10,4 +11,6 @@ def add_theme(request, section_id):
         new_theme.section = section
         new_theme.author = request.user
         new_theme.save()
+        messages.success(request, 'Тема успешно добавлена')
+        return redirect('home')
     return render(request, 'poster/add_theme.html', {'form': form})
