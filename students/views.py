@@ -52,8 +52,8 @@ def complete_reg(request):
         return render(request, 'auth/complete_reg.html', {'form': form})
 
 
-def redact(request, info_id):
-    user_optional_info = UserOptional.objects.get(pk=info_id)
+def redact(request):
+    user_optional_info = UserOptional.objects.get(user_id=request.user.id)
     form = UserOptionalForm(request.POST or None, instance=user_optional_info)
     if form.is_valid():
         user_info = form.save(commit=False)
@@ -61,3 +61,8 @@ def redact(request, info_id):
         user_info.save()
         return redirect('home')
     return render(request, 'auth/redact.html', {'form': form})
+
+
+def profile(request):
+    user_info = UserOptional.objects.filter(user_id=request.user.id).first()
+    return render(request, 'auth/profile.html', {'user_info': user_info})
