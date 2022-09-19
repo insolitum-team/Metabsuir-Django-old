@@ -28,6 +28,7 @@ class Message(models.Model):
     sender = models.ForeignKey(User, blank=False, null=False, on_delete=models.CASCADE)
     date = models.DateTimeField('Дата отправки', auto_now_add=True)
 
+
 class SideMenuItem(models.Model):
     theme = models.ForeignKey(Theme, blank=False, null=False, on_delete=models.CASCADE)
 

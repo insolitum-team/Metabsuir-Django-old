@@ -74,3 +74,11 @@ def redact(request):
 def profile(request):
     user_info = UserOptional.objects.filter(user_id=request.user.id).first()
     return render(request, 'auth/profile.html', {'user_info': user_info})
+
+
+def restore_message(request):
+    pass
+
+
+def restore_password(request):
+    pass
