@@ -3,8 +3,8 @@
 <div class="container background-border">
     <div class="left-part">
         <h5 style="color: white;">{{ theme }}</h5>
-        {% for message in messages %}
-        <p style="color: white;">{{ message.content }}</p>
+        {% for comment in comments %}
+        <p style="color: white;">{{ comment.content }}</p>
         {% endfor %}
     </div>
     <div class="right-part">
